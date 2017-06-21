@@ -136,7 +136,7 @@ module.exports = {
         exclude: [
           /\.html$/,
           /\.(js|jsx)$/,
-          /\.css$/,
+          /\.(css|scss)$/,
           /\.json$/,
           /\.bmp$/,
           /\.gif$/,
@@ -172,7 +172,12 @@ module.exports = {
           cacheDirectory: true,
           plugins: [
             ['react-css-modules', {
-              webpackHotModuleReloading: true
+              webpackHotModuleReloading: true,
+              filetypes: {
+                '.scss': {
+                  'syntax': 'postcss-scss'
+                }
+              }
             }]
           ]
         },
@@ -183,7 +188,7 @@ module.exports = {
       // In production, we use a plugin to extract that CSS to a file, but
       // in development "style" loader enables hot editing of CSS.
       {
-        test: /\.css$/,
+        test: /\.(css|scss)$/,
         use: [
           require.resolve('style-loader'),
           {
