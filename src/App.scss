@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  // composes: someClass from './SomeStyleSheet.css';
+  composes: someClass from './SomeStyleSheet.scss';
 }
 
 .App-logo {
